@@ -2646,17 +2646,17 @@ import time as t
 # shell_sort(a)
 # print(a)
 
-class MusicPlayer:
-    def play_music(self):
-        print("Проигрываю музыку")
-
-    def open_photo(self):
-        print("Открываю фотографию")
-
-
-m1 = MusicPlayer()
-m1.play_music()
-m1.open_photo()
+# class MusicPlayer:
+#     def play_music(self):
+#         print("Проигрываю музыку")
+#
+#     def open_photo(self):
+#         print("Открываю фотографию")
+#
+#
+# m1 = MusicPlayer()
+# m1.play_music()
+# m1.open_photo()
 
 
 # class Book:
@@ -2699,3 +2699,43 @@ m1.open_photo()
 # b1 = Book("Изучаем программирование на Python", "Пол Бэрри", 2021, 2000)
 # inv = Invoice("Изучаем программирование на Python", 3, 5, 2, b1)
 # inv.print_invoice(b1)
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл")
+# f.close()
+#
+# f = open('text2.txt', 'r')
+# s = f.readlines()
+# print(s)
+# pos = int(input("Введите индекс строки для удаления: "))
+# if 0 <= pos < len(s):
+#     del s[pos]
+# else:
+#     print("Индекс введен неверно!")
+# print(s)
+# f.close()
+#
+# f = open('text2.txt', 'w')
+# f.writelines(s)
+# f.close()
+
+import re
+
+# Найти цифры, рядом с которой нет цифр: 1Х, Text ABC 123 A1B2C3
+text = '1Х, Text ABC 123 A1B2C3'
+reg = r'(?<!\d)\d(?!\d)'
+print(re.findall(reg, text, re.I))
+
+# Найти цифры, рядом с которой нет цифр: Х, Text ABC 123 A1B2C3
+text = 'ABC 123 A1B2C3'
+reg = r'(?<!\d)\d(?!\d)'
+print(re.findall(reg, text, re.I))
+
+# Найти текст от #START# до #END#: text from #START# till #END#
+text = 'from #START# till #END#'
+reg = r'(?<=#START#).*(?=#END#)'
+print(re.findall(reg, text, re.I))
+
+# Найти последовательность цифр, после которой идет ровно одно подчеркивание: 12_34__56
+text = '12_34__56'
+reg = r'\d+(?=_(?!_))'
+print(re.findall(reg, text, re.I))
