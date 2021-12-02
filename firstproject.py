@@ -2718,4 +2718,4 @@ import time as t
 # f.writelines(s)
 # f.close()
 
-print("Вносим изменения")
+print("Вносим изменения с склонируемый проект")
