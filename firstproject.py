@@ -2088,7 +2088,7 @@
 # load()
 # loads()
 
-import pickle
+# import pickle
 
 # filename = "basket.txt"
 # shoplist = {
@@ -2217,8 +2217,8 @@ import pickle
 
 # requests
 
-import random as r
-import time as t
+# import random as r
+# import time as t
 
 
 #
@@ -2671,34 +2671,35 @@ import time as t
 #
 #
 # class Invoice:  # Счет
-#     def __init__(self, book, quantity, discount_rate, tax_rate, pr):
+#     def __init__(self, book, quantity, discount_rate, tax_rate):
 #         self.book = book
 #         self.quantity = quantity  # количество
 #         self.discount_rate = discount_rate  # Размер скидки
 #         self.tax_rate = tax_rate  # Ставка налога
-#         self.total = self.calculate_total(pr)
+#         self.bk = Book("Изучаем программирование на Python", "Пол Бэрри", 2021, 2000)
+#         self.total = self.calculate_total()
 #
 #     # def __str__(self):
 #     #     return f"{self.book} {self.quantity} {self.discount_rate} {self.tax_rate}"
 #
-#     def calculate_total(self, pr):
-#         price = (pr.price - (pr.price * self.discount_rate) / 100) * self.quantity
+#     def calculate_total(self):
+#         price = (self.bk.price - (self.bk.price * self.discount_rate) / 100) * self.quantity
 #         price_width_taxes = price - price * self.tax_rate / 100
 #         return price_width_taxes
 #
-#     def print_invoice(self, pr):
-#         print(self.quantity, " книги '", self.book, "' ", pr.price, " руб", sep="")
+#     def print_invoice(self):
+#         print(self.quantity, " книги '", self.book, "' ", self.bk.price, " руб", sep="")
 #         print("Размер скидки: ", self.discount_rate, "%", sep="")
 #         print("Ставка налога: ", self.tax_rate, "%", sep="")
-#         print("Всего: ", self.calculate_total(pr), "руб")
+#         print("Всего: ", self.calculate_total(), "руб")
 #
 #     def save_to_file(self):
 #         pass
 #
 #
-# b1 = Book("Изучаем программирование на Python", "Пол Бэрри", 2021, 2000)
-# inv = Invoice("Изучаем программирование на Python", 3, 5, 2, b1)
-# inv.print_invoice(b1)
+# # b1 = Book("Изучаем программирование на Python", "Пол Бэрри", 2021, 2000)
+# inv = Invoice("Изучаем программирование на Python", 3, 5, 2)
+# inv.print_invoice()
 # f = open("text2.txt", "w")
 # f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл")
 # f.close()
@@ -2759,5 +2760,564 @@ import time as t
 #
 # for i in range(5):
 #     write_json(gen_person())
+# import json
+#
+#
+# class ExportJson:
+#     def __init__(self, data):
+#         self.data = self.prepare(data)
+#
+#     def prepare(self, data):  # подготовить (отформатировать данные)
+#         res = dict(data)
+#         return res
+#
+#     def write_file(self, filename):  # запись в файл
+#         with open(filename, 'w') as f:
+#             json.dump(self.data, f, indent=2)
+#
+#
+# lst = [('name', 'Anna'), ('surname', 'Petrova'), ('email', 'petrova@mail.ru')]
+# export = ExportJson(lst)
+# export.write_file('out.json')
+
+# import json
+#
+#
+# class FormatData:
+#     def __init__(self, data):
+#         self.data = data
+#
+#     def prepare(self):  # подготовить (отформатировать данные)
+#         res = dict(self.data)
+#         return res
+#
+#
+# class ExportJson:
+#     def __init__(self, filename):
+#         self.filename = filename
+#
+#     def write_file(self, data):  # запись в файл
+#         with open(self.filename, 'w') as f:
+#             json.dump(data, f, indent=2)
+#
+#
+# lst = [('name', 'Anna'), ('surname', 'Petrova'), ('email', 'petrova@mail.ru')]
+# export = FormatData(lst)
+# export_data = export.prepare()
+# writer = ExportJson('out1.json')
+# writer.write_file(export_data)
+
+# from controller import Controller
+#
+#
+# def main():
+#     app = Controller()
+#     app.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
+# import time
+#
+#
+# class Article:
+#     def __init__(self):
+#         self.prefix = time.strftime("%d/%m/%Y, %H:%M:%S")
+#
+#     def add(self, message):
+#         print(self.prefix, "-->", message)
+#
+#
+# class ArticleMessage(Article):
+#     def __init__(self):
+#         super().__init__()
+#         self.prefix = time.strftime("%d/%m/%Y")
+#
+#
+# logger = Article()
+# logger.add("Статья 1")
+# article = ArticleMessage()
+# article.add("Статья 2")
+
+# class Animal:
+#     def __init__(self, name, age):
+#         self.attrs = {'name': name, 'age': age}
+#
+#     def eat(self, amount=0):
+#         print("Ест еду")
+#
+#
+# class Cat(Animal):
+#     def eat(self, amount=0.1):
+#         if amount > 0.3:
+#             print("Кот не может есть так много")
+#         else:
+#             print("Съел немного кошачей еды")
+#
+#
+# class Dog(Animal):
+#     def eat(self, amount=0):
+#         print("Съел немного собачей еды")
+#
+#
+# pluto = Dog('Pluto', 3)
+# goofy = Dog('Goofy', 2)
+# buttons = Cat('Mr. Buttons', 4)
+#
+# animals = (pluto, goofy, buttons)
+#
+# for animal in animals:
+#     if animal.attrs['age'] > 2:
+#         print(animal.attrs['name'])
+
+# import unittest
+#
+#
+# class TestSum(unittest.TestCase):
+#
+#     def test_sum(self):
+#         self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
+#
+#     def test_sum_tuple(self):
+#         self.assertEqual(sum((1, 2, 2)), 6, "Should be 6")
+#
+#
+# if __name__ == '__main__':
+#     unittest.main()
+
+# import unittest
+#
+#
+# class TestSum(unittest.TestCase):
+#
+#     def setUp(self):
+#         """ Выполняется перед каждым тестовым примером """
+#         print("Выполняется перед тестом")
+#         self.sum = 0
+#
+#     def tearDown(self):
+#         """ Выполняется после каждого тестового примера """
+#         print("Разорвать выполнение после тестового примера")
+#
+#     def test_sum(self):
+#         self.sum = [1, 2, 3]
+#         self.assertEqual(sum(self.sum), 6, "Should be 6")
+#
+#     @unittest.expectedFailure
+#     def test_sum_tuple(self):
+#         self.sum = (1, 2, 2)
+#         self.assertEqual(sum(self.sum), 6, "Should be 6")
+#
+#
+# if __name__ == '__main__':
+#     unittest.main()
+
+# str1 = """Создать базовый класс «Employer» (служащий) с функцией print(). Она должна выводить
+# информцию о служащем. В случае базового класса надпись: "This is Employer class".
+# Создайте от него три производных класса: President, Manager, Worker.
+# В каждом классе print() будет выводить информации, соответствующюю каждому типу служащего.
+# """
+# print(str1)
+#
+#
+# class Employer:
+#     def __init__(self, age, gender, name, position, phone):
+#         self.age = age
+#         self.gender = gender
+#         self.name = name
+#         self.position = position
+#         self.phone = phone
+#
+#     def info(self):
+#         print(f"Name: {self.name}\nGender: {self.gender}\nAge: {self.age}\nPosition: {self.position}\nPhone: "
+#               f"{self.phone}")
+#
+#     def print(self):
+#         print("This is Employer class")
+#
+#
+# class President(Employer):
+#     def sound(self):
+#         print("Я умею мяукать")
+#
+# class Dog(Pet):
+#     def sound(self):
+#         print("Я умею мяукать")
+#
+# class Cat(Pet):
+#     def sound(self):
+#         print("Я умею мяукать")
+#
+# class Cat(Pet):
+#     def sound(self):
+#         print("Я умею мяукать")
+
+# def factorial(n):
+#     """Вернуть факториал n, целого числа >= 0.
+#
+#     >>> [factorial(n) for n in range(6)]
+#     [1, 1, 2, 6, 24, 120]
+#     >>> factorial(30)
+#     265252859812191058636308480000000
+#     >>> factorial(-1)
+#     Traceback (most recent call last):
+#         ...
+#     ValueError: n must be >= 0
+#
+#     Factorials of floats are OK, but the float must be an exact integer:
+#     >>> factorial(30.1)
+#     Traceback (most recent call last):
+#         ...
+#     ValueError: n must be exact integer
+#     >>> factorial(30.0)
+#     265252859812191058636308480000000
+#
+#     It must also not be ridiculously large:
+#     >>> factorial(1e100)
+#     Traceback (most recent call last):
+#         ...
+#     OverflowError: n too large
+#     """
+#
+#     import math
+#     if not n >= 0:
+#         raise ValueError("n должно быть >= 0")
+#     if math.floor(n) != n:
+#         raise ValueError("n должно быть целым числом")
+#     if n + 1 == n:  # поймать значение как 1e300
+#         raise OverflowError("n слишком большое")
+#     result = 1
+#     factor = 2
+#     while factor <= n:
+#         result *= factor
+#         factor += 1
+#     return result
+#
+#
+# if __name__ == "__main__":
+#     import doctest
+#
+#     doctest.testmod()
+
+# import unittest
+#
+#
+# class suiteTest(unittest.TestCase):
+#     a = 50
+#     b = 40
+#
+#     def testadd(self):
+#         """Add"""
+#         result = self.a + self.b
+#         self.assertEqual(result, 90)  # 100
+#
+#     @unittest.skipIf(a > b, "Пропустить тест если a<b")
+#     def testsub(self):
+#         """sub"""
+#         result = self.a - self.b
+#         self.assertTrue(result == -10)
+#
+#     @unittest.skipUnless(b == 0, "Skip over this routine")
+#     def testdiv(self):
+#         """div"""
+#         result = self.a / self.b
+#         self.assertTrue(result == 1)
+#
+#     @unittest.expectedFailure
+#     def testmul(self):
+#         """mul"""
+#         result = self.a * self.b
+#         self.assertEqual(result == 0)
+#
+#
+# if __name__ == '__main__':
+#     unittest.main()
+import multiprocessing
+from time import sleep, time
+
+# def sleeper(sec):
+#     print(f"{multiprocessing.current_process().name}: Засыпаю на {sec} секунд...")
+#     sleep(sec)
+#     print(f"{multiprocessing.current_process().name}: Я проснулся после {sec} секунд...")
+#
+#
+# def main():
+#     sec = 5
+#     # proc1 = multiprocessing.Process(target=sleeper, name="Процесс 1", args=(sec,))
+#     # proc2 = multiprocessing.Process(target=sleeper, name="Процесс 2", args=(sec,))
+#
+#     proc1 = multiprocessing.Process(target=increment, name="Процесс 1")
+#     proc2 = multiprocessing.Process(target=increment, name="Процесс 2")
+#
+#     start_time = time()
+#     # sleeper(2)
+#     # sleeper(2)
+#     proc1.start()
+#     proc2.start()
+#
+#     proc1.join()
+#     proc2.join()
+#
+#     end_time = time()
+#     print(f"Программа исполнялась {end_time - start_time} сек.")
+#     print(f'Глобальная переменная {x = }')
+#
+#
+# x = 0
+#
+#
+# def increment():
+#     print(f"{multiprocessing.current_process().name}: Начал инкремент x...")
+#     global x
+#     for i in range(100):
+#         x += 1
+#     print(f"{multiprocessing.current_process().name}: Закончил инкремент x {x = }")
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# import sqlite3 as sq
+#
+# with sq.connect("profile.db") as con:
+#     cur = con.cursor()
+#     cur.execute("DROP TABLE users")
+# cur.execute("""CREATE TABLE IF NOT EXISTS users(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT NOT NULL,
+# summa REAL,
+# date TEXT
+# )""")
+
+# +++++++++++++++++++++++++++++++++++++++++++++
+# Сетевое программирование
+# import socket
+
+# import car.electrocar
+# from car import electrocar
+#
+#
+# def main():
+#     e_car = electrocar.ElectroCar("Tesla", "T", 2018, 99000)
+#     e_car.show_car()
+#     e_car.description_battery()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# class Point3D:
+#     CH = "Координата должны быть числом"
+#     RIGHT = "Правый операнд должен быть типом Point3D"
+#
+#     def __init__(self, x=0, y=0, z=0):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     @staticmethod
+#     def __check_value(v):
+#         return isinstance(v, int) or isinstance(v, float)
+#
+#     def __str__(self):
+#         return f"{self.__x}, {self.__y}, {self.__z}"
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, value):
+#         if self.__check_value(value):
+#             self.__x = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def y(self):
+#         return self.__y
+#
+#     @y.setter
+#     def y(self, value):
+#         if self.__check_value(value):
+#             self.__y = value
+#         else:
+#             print(self.CH)
+#
+#     @property
+#     def z(self):
+#         return self.__z
+#
+#     @z.setter
+#     def z(self, value):
+#         if self.__check_value(value):
+#             self.__z = value
+#         else:
+#             print(self.CH)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x + other.x, self.__y + other.y, self.__z + other.z)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x - other.x, self.__y - other.y, self.__z - other.z)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         else:
+#             return Point3D(self.__x * other.x, self.__y * other.y,
+#                            self.__z * other.z)
+#
+#     @staticmethod
+#     def __check0(exemplar):
+#         if exemplar.x == 0 or exemplar.y == 0 or exemplar.z == 0:
+#             raise ZeroDivisionError("Ни одна из координат второго операнда не должна быть равна 0")
+#
+#     def __truediv__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         self.__check0(other)
+#         return Point3D(self.__x / other.x, self.__y / other.y, self.__z / other.z)
+#
+#     def __mod__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         self.__check0(other)
+#         return Point3D(self.__x % other.x, self.__y % other.y, self.__z % other.z)
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError(self.RIGHT)
+#         return self.__x == other.x and self.__y == other.y and self.__z == other.z
+#
+#     def __ne__(self, other):
+#         return not self.__eq__(other)
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         elif item == 'x':
+#             return self.__x
+#         elif item == 'y':
+#             return self.__y
+#         elif item == 'z':
+#             return self.__z
+#         else:
+#             print("Неверно указан ключ")
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         if self.__check_value(value):
+#             if key == 'x':
+#                 self.__x = value
+#             elif key == 'y':
+#                 self.__y = value
+#             elif key == 'z':
+#                 self.__z = value
+#         else:
+#             print("Координаты должны быть числами")
+#
+#
+# pt = Point3D(12, 15, 18)
+# pt2 = Point3D(6, 3, 9)
+# print("Координаты 1-й точки: ", pt)
+# print("Координаты 2-й точки: ", pt2)
+#
+# pt3 = pt + pt2
+# print(f"Сложение координат: ({pt3})")
+#
+# pt4 = pt - pt2
+# print(f"Вычитание координат: ({pt4})")
+#
+# pt5 = pt * pt2
+# print(f"Умножение: ({pt5})")
+#
+# pt6 = pt / pt2
+# print(f"Деление: ({pt6})")
+#
+# print("Равенство координат: ", pt == pt2)
+#
+# print("x =", pt['x'], "x1 =", pt2['x'])
+# print("y =", pt['y'], "y1 =", pt2['y'])
+# print("x =", pt['z'], "z1 =", pt2['z'])
+#
+# pt['x'] = 20
+# print("Запись значения в координату x:", pt['x'])
+
+import socket
+from view import index, blog
+
+URLS = {
+    '/': index,
+    '/blog': blog
+}
+
+
+def parse_request(request):
+    parsed = request.split(' ')  # В request все что идет после => разбиваем по пробелу и берем два первых значения
+    method = parsed[0]  # GET
+    url = parsed[1]  # /
+    return method, url
+
+
+def generate_headers(method, url):
+    # до версии Python 3.10
+    if method != 'GET':
+        return 'HTTP/1.1 405 Method not allowed!\n\n', 405  # метод не поддерживается (не разрешен)
+    if url not in URLS:
+        return 'HTTP/1.1 404 Method Not found!\n\n', 404  # страницы не существует
+    return 'HTTP/1.1 200 OK!\n\n', 200
+
+
+def generate_content(code, url):
+    if code == 404:  # status code
+        return '<h1>404</h1><h3>Not Found</h3>'
+    elif code == 405:
+        return '<h1>405</h1><h3>Method not allowed</h3>'
+    return URLS[url]()
+
+
+def generate_response(request):  # генерируем ответ сервера
+    method, url = parse_request(request)
+    headers, code = generate_headers(method, url)
+    body = generate_content(code, url)
+    return (headers + body).encode()
+
+
+def run():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # создать сокет
+    # SOCK_STREAM - сокеты с установленным соединением на основе протокола TCP, передают поток байтов, который может быть двунаправленным - т.е. приложение может и получать, и отправлять данные.
+    server_socket.bind(('127.0.0.1', 5000))
+    # Привязывает сокет к адресу address (инициализирует IP-адрес и порт)
+    server_socket.listen()  # 127.0.0.1:5000
+    # Переводит сервер в режим приема соединений
+
+    while True:
+        client_socket, addr = server_socket.accept()
+        # Принимает соединение и блокирует приложение в ожидании сообщения от клиента. В       результате возвращает кортеж:
+        # •    client_socket: объект соединения (сокет), который можно использовать для отправки/получения данных;
+        # •    addr: адрес клиента.
+
+        request = client_socket.recv(1024)
+        # Читает и возвращает данные в двоичном формате (набор байтов) из сокета.
+        # (Максимальное количество байтов в одном сообщении)
+
+        print(f"Клиент: {addr} => \n{request.decode('utf-8')}\n")
+
+        response = generate_response(request.decode())
+        client_socket.sendall(response)  # Отправить данные в сокет
+        client_socket.close()  # Закрывает сокет
+
+
+if __name__ == "__main__":
+    run()
